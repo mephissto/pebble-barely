@@ -6,9 +6,11 @@ Pebble.addEventListener("ready", function() {
 });
 
 Pebble.addEventListener("showConfiguration", function() {
-	console.log("showing configuration");
+	console.log("Showing configuration");
+  
+  console.log("Trace: Local storage - " + JSON.stringify(localStorage));
 
-	var url = 'http://plckthn.me/pebble/barely/configure.html?';
+	var url = 'http://mephissto.github.io/barely-settings.html?';
 	var firstParam = true;
 
 	for(var i = 0, x = localStorage.length; i < x; i++) {
@@ -24,7 +26,7 @@ Pebble.addEventListener("showConfiguration", function() {
 				url += encodeURIComponent(key) + "=" + encodeURIComponent(val);
 			}
 		}
-
+  console.log("Trace: url - " + url);
 	Pebble.openURL(url);
 });
 
@@ -37,7 +39,7 @@ Pebble.addEventListener("webviewclosed", function(e) {
 		}
 		console.log("Trace: Options Recorded - " + JSON.stringify(options));
 
-		var dict = { 0: options.KEY_INVERTED, 1: options.KEY_BLUETOOTH, 2: options.KEY_VIBE };
+    var dict = { 0: options.KEY_INVERTED, 1: options.KEY_BLUETOOTH, 2: options.KEY_VIBE, 3: options.KEY_THEME };
 		console.log("Trace: Dict Sending - " + JSON.stringify(dict));
 
 		Pebble.sendAppMessage(dict,

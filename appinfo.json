@@ -1,16 +1,22 @@
 {
-  "uuid": "dfaa12a0-b10c-42af-ad95-9a7db7ec2d52",
-  "shortName": "Barely",
-  "longName": "Barely",
-  "companyName": "Phil Plueckthun",
-  "versionCode": 8,
-  "versionLabel": "1.2.1",
-  "capabilities": [ "configurable" ],
-  "watchapp": {
-    "watchface": true
-  },
-  "appKeys": {},
-  "resources": {
-    "media": []
-  }
+    "appKeys": {},
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "mephissto",
+    "longName": "Barely Color",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "3",
+    "shortName": "Barely Color",
+    "targetPlatforms": [
+        "basalt"
+    ],
+    "uuid": "34af1745-8623-4cd2-bcb7-ae4cabbe1578",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
 }
