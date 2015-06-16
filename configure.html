@@ -17,7 +17,7 @@
       <div data-role="content">
 
         <div data-role="fieldcontain">
-          <label for="KEY_INVERTED">Invert (White on Black)</label>
+          <label for="KEY_INVERTED">Invert colors</label>
           <select name="KEY_INVERTED" id="KEY_INVERTED" data-role="slider">
             <option value="off">Off</option>
             <option value="on">On</option>
@@ -66,6 +66,9 @@
 	            var bits = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/g, function (match, key, value) {
 	              params[key] = value;
 	            });
+
+              console.log("getUrlOptions params = " + JSON.stringify(params));
+
 	            return params;
 	        }
 
@@ -75,7 +78,15 @@
 	            var field = $("#"+key);
 	            if (field !== null) {
 	              var value = decodeURIComponent(params[key]);
-	              field.val(value).slider("refresh");
+                if (key == "KEY_THEME") {
+                  $('#KEY_THEME').find('option[value="' + value + '"]')
+                    .siblings().removeAttr('selected')
+                    .end().attr('selected', 'selected')
+                    .end().selectmenu("refresh");
+                }
+                else {
+                  field.val(value).slider("refresh");
+                }
 	            }
 	          }
 	        }
@@ -93,7 +104,6 @@
 
           var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
           console.log("Warping to: " + location);
-          console.log(location);
           document.location = location;
         });
 
