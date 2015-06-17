@@ -590,6 +590,7 @@ void handle_deinit(void) {
 	persist_write_bool(PERSIST_INVERTED, invertInterface);
 	persist_write_bool(PERSIST_BLUETOOTH, bluetoothIndicator);
 	persist_write_bool(PERSIST_VIBE, vibeTime);
+  persist_write_int(PERSIST_THEME, themeSetting);
 }
 
 int main(void) {
